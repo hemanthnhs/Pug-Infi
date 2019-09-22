@@ -21,11 +21,6 @@ class App extends Component {
             .catch(console.log)
     }
 
-    fetchNewData() {
-        this.fetchPugs();
-        console.log("hola");
-    };
-
     componentDidMount() {
         this.fetchPugs();
         window.addEventListener("scroll", (e) => this.scrollEvent(e));
@@ -33,17 +28,17 @@ class App extends Component {
 
     scrollEvent() {
         // Attribution - Reference from Bits and Pieces article
-        var lastLi = document.querySelector("ul#img-container > li:last-child");
-        var lastLiOffset = lastLi.offsetTop + lastLi.clientHeight;
-        var pageOffset = window.pageYOffset + window.innerHeight;
+        let lastLi = $("ul#img-container > li:last-child")[0];
+        let lastLiOffset = lastLi.offsetLeft + lastLi.clientWidth;
+        let pageOffset = window.pageXOffset + window.innerWidth;
         if (pageOffset > lastLiOffset) {
-            this.fetchNewData();
+            this.fetchPugs();
         }
     }
 
     render() {
-        var picsList = this.state.pictures.map(function (picture) {
-            return <li><img src={picture} className="Pug-img" alt="Pug Image"/></li>
+        var picsList = this.state.pictures.map(function (picture, index) {
+            return <li key={index}><img src={picture} className="Pug-img" alt="Pug Image"/></li>
         })
 
         return (

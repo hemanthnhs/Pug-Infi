@@ -1,8 +1,13 @@
 #img-container {
     text-align: -moz-center;
     text-align: -webkit-center;
+    display: flex;
 }
 
 .Pug-img {
-    display: block;
+    display: inline;
+}
+
+ul{
+    list-style-type: none;
 }
