@@ -8,4 +8,8 @@ body {
             #ab7c41 50px,
             #bf8843 50px,
             #bf8843 100px);
+    background-attachment: fixed;
+    background-blend-mode: lighten;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }

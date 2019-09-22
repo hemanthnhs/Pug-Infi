@@ -48,7 +48,10 @@ class App extends Component {
         var that = this;
         var picsList = this.state.pictures.map(function (picture, index) {
             return <li key={index}><img src={picture} className="Pug-img" alt="Pug"
-                                        style={{maxHeight: 0.65 * that.state.height, maxWidth: 0.9*that.state.width}}/></li>
+                                        style={{
+                                            maxHeight: 0.65 * that.state.height,
+                                            maxWidth: 0.9 * that.state.width
+                                        }}/></li>
         })
 
         return (
