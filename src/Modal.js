@@ -7,6 +7,6 @@ export default class Modal extends React.Component {
             return null;
         }
 
-        return <div id="modal"><img id="img-popup" src={this.props.img.src}/></div>;
+        return <div id="modal"><img id="img-popup" src={this.props.img.src} alt="Pug"/></div>;
     }
 }

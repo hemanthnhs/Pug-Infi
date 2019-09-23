@@ -21,13 +21,10 @@ class App extends Component {
         fetch('/bomb?count=10')
             .then(res => res.json())
             .then((data) => {
-                this.setState({pictures: [...this.state.pictures, ...data["pugs"]]})
+                let newPugs = $(data["pugs"]).not(this.state.pictures)
+                this.setState({pictures: [...this.state.pictures, ...newPugs]})
             })
             .catch(console.log)
-    }
-
-    setWrapperRef(node) {
-        this.wrapperRef = node;
     }
 
     componentDidMount() {
@@ -54,7 +51,7 @@ class App extends Component {
     }
 
     handleClickOutside = (event) => {
-        if (event.target.tagName == 'DIV') {
+        if (event.target.tagName === 'DIV') {
             this.hideModal()
         }
     }
@@ -69,8 +66,8 @@ class App extends Component {
     };
 
     render() {
-        var that = this;
-        var picsList = this.state.pictures.map(function (picture, index) {
+        let that = this;
+        let picsList = this.state.pictures.map(function (picture, index) {
             return <li key={index}><img src={picture} className="Pug-img" alt="Pug"
                                         style={{
                                             maxHeight: 0.65 * that.state.height,
@@ -84,7 +81,7 @@ class App extends Component {
                 <ul id="img-container">
                     {picsList}
                 </ul>
-                <div id={this.state.show ? 'modal-container' : ''} ref={this.setWrapperRef()}>
+                <div id={this.state.show ? 'modal-container' : ''} >
                     <Modal show={this.state.show} img={this.state.displayImg}/>
                 </div>
             </div>
