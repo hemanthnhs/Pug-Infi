@@ -58,7 +58,6 @@ class App extends Component {
 
     showModal = (ev) => {
         this.setState({show: true, displayImg: ev.target});
-        console.log(ev.target)
     };
 
     hideModal = () => {
