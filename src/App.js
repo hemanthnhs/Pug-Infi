@@ -33,7 +33,12 @@ class App extends Component {
         window.addEventListener("scroll", (e) => this.scrollEvent(e));
         window.addEventListener("resize", (e) => this.windowResize(e));
         window.addEventListener('mousedown', this.handleClickOutside);
+    }
 
+    componentWillUnmount() {
+        window.removeEventListener("scroll", (e) => this.scrollEvent(e));
+        window.removeEventListener("resize", (e) => this.windowResize(e));
+        window.removeEventListener('mousedown', this.handleClickOutside);
     }
 
     windowResize() {
